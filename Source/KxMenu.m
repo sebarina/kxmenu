@@ -652,6 +652,9 @@ typedef enum {
         
         CGFloat a;
         [tintColor getRed:&R0 green:&G0 blue:&B0 alpha:&a];
+        R1 = R0;
+        G1 = G0;
+        B1 = B0;
     }
     
     CGFloat X0 = frame.origin.x;

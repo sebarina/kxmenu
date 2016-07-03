@@ -83,10 +83,10 @@
     [_btn7 setTitle:@"Click me" forState:UIControlStateNormal];
     [_btn7 addTarget:self action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_btn7];
-//    [KxMenu setSelectedColor: [UIColor greenColor]];
+    [KxMenu setSelectedColor: [UIColor greenColor]];
 //    [KxMenu setSeparatorLineColor:[UIColor redColor]];
 
-    //[KxMenu setTintColor: [UIColor colorWithRed:15/255.0f green:97/255.0f blue:33/255.0f alpha:1.0]];
+    [KxMenu setTintColor: [UIColor redColor]];
     //[KxMenu setTitleFont:[UIFont systemFontOfSize:14]];
 }
 
