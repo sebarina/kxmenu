@@ -60,6 +60,10 @@
 
 + (UIColor *) tintColor;
 + (void) setTintColor: (UIColor *) tintColor;
++ (UIColor *) selectedColor;
++ (void) setSelectedColor : (UIColor *) selctedColor;
++ (UIColor *) separatorlineColor;
++ (void) setSeparatorLineColor: (UIColor *) lineColor;
 
 + (UIFont *) titleFont;
 + (void) setTitleFont: (UIFont *) titleFont;

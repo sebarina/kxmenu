@@ -571,10 +571,24 @@ typedef enum {
 + (UIImage *) selectedImage: (CGSize) size
 {
     const CGFloat locations[] = {0,1};
-    const CGFloat components[] = {
+    CGFloat components[8] = {
         0.216, 0.471, 0.871, 1,
         0.059, 0.353, 0.839, 1,
     };
+    
+    UIColor *color = [KxMenu selectedColor];
+    if (color) {
+        CGFloat R, G, B, A;
+        [color getRed:&R green:&G blue:&B alpha:&A];
+        components[0] = R;
+        components[1] = G;
+        components[2] = B;
+        components[3] = A;
+        components[4] = R;
+        components[5] = G;
+        components[6] = B;
+        components[7] = A;
+    } 
     
     return [self gradientImageWithSize:size locations:locations components:components count:2];
 }
@@ -583,8 +597,14 @@ typedef enum {
 {
     const CGFloat locations[5] = {0,0.2,0.5,0.8,1};
     
-    const CGFloat R = 0.44f, G = 0.44f, B = 0.44f;
-        
+    CGFloat R = 0.44f, G = 0.44f, B = 0.44f;
+    
+    UIColor *color = [KxMenu separatorlineColor];
+    if (color) {
+        CGFloat A;
+        [color getRed:&R green:&G blue:&B alpha:&A];
+    }
+
     const CGFloat components[20] = {
         R,G,B,0.1,
         R,G,B,0.4,
@@ -767,6 +787,8 @@ typedef enum {
 static KxMenu *gMenu;
 static UIColor *gTintColor;
 static UIFont *gTitleFont;
+static UIColor *gSelectedColor;
+static UIColor *gLineColor;
 
 @implementation KxMenu {
     
@@ -870,6 +892,30 @@ static UIFont *gTitleFont;
 {
     if (tintColor != gTintColor) {
         gTintColor = tintColor;
+    }
+}
+
++ (UIColor *) selectedColor
+{
+    return gSelectedColor;
+}
+
++ (void)setSelectedColor:(UIColor *)selectedColor
+{
+    if (selectedColor != gSelectedColor) {
+        gSelectedColor = selectedColor;
+    }
+}
+
++ (UIColor *)separatorlineColor 
+{
+    return gLineColor;
+}
+
++ (void)setSeparatorLineColor:(UIColor *)lineColor
+{
+    if (lineColor != gLineColor) {
+        gLineColor = lineColor;
     }
 }
 
