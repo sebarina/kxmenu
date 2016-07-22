@@ -466,6 +466,8 @@ typedef enum {
             button.backgroundColor = [UIColor clearColor];
             button.opaque = NO;
             button.autoresizingMask = UIViewAutoresizingNone;
+            [button setAccessibilityIdentifier:@"kxmenu_item"];
+            button.isAccessibilityElement = YES;
             
             [button addTarget:self
                        action:@selector(performAction:)
